@@ -6,35 +6,35 @@ namespace TankAssault
 {
     public class LevelScroll : MonoBehaviour
     {
+        // GameObject
+        GameObject camObj;
+
         //Scripts
         public GroundGeneration _groundGeneration;
 
-        // Objects
-        GameObject camObj;
-
         // Components
-        Camera cam;
         SpriteRenderer spriteRenderer;
+        Camera cam;
+
+        // Methods
+        private void Start()
+        {
+            camObj = GameObject.Find("MainCamera");
+            cam = camObj.GetComponent<Camera>();
+        }
 
         private void FixedUpdate()
         {
-            // Find Camera
-            if (cam == null)
-            {
-                camObj = GameObject.Find("MainCamera");
-                cam = camObj.GetComponent<Camera>();
-            }
-
             ScrollBlocks();
         }
 
         void ScrollBlocks()
         {
             // Determins CameraBounds
-            float camBounds = cam.orthographicSize * 2;
+            float camBounds = cam.orthographicSize * 2; // Gets half the camera size
             //==========================================
 
-            foreach (GameObject block in _groundGeneration.groundBlocks)
+            foreach (GameObject block in _groundGeneration.GroundBlocks)
             {
                 Vector3 pos = block.transform.position;
 
