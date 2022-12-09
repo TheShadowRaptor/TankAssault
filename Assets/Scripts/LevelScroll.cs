@@ -44,13 +44,5 @@ namespace TankAssault
                 block.transform.position = pos;
             }
         }
-
-        bool IsBlockVisable(GameObject block)
-        {
-            spriteRenderer = block.GetComponent<SpriteRenderer>();
-            if (spriteRenderer.isVisible == false) return false;
-
-            return true;
-        }
     }
 }
