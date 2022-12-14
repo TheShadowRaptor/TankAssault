@@ -7,8 +7,8 @@ namespace TankAssault
     public class ButtonManager : MonoBehaviour
     {
         // Const
-        private const string titleSceneConst = "Title";
-        private const string gameplaySceneConst = "Gameplay";
+        private const string titleSceneConst = "Scenes/Title";
+        private const string gameplaySceneConst = "Scenes/Gameplay";
 
         // Scripts
         [Header("Scripts")]

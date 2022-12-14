@@ -21,11 +21,11 @@ namespace TankAssault
         private const string gameplayConst = "Gameplay";
         private const string pauseConst = "Pause";
 
+
+        // Properties
         public string MainmenuConst { get => mainmenuConst;  }
         public string GameplayConst { get => gameplayConst;  }
         public string PauseConst { get => pauseConst;  }
-
-        // Properties
         public GameState CurrentGameState { get => currentGameState; }
         public GameState PreviousGameState { get => previousGameState; }
 
