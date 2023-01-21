@@ -7,10 +7,12 @@ namespace TankAssault
     public class PlayerController : MonoBehaviour
     {
         Rigidbody2D rb;
+        PlayerStats _playerStats;
         // Start is called before the first frame update
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            _playerStats = GetComponent<PlayerStats>();
         }
 
         // Update is called once per frame
@@ -26,8 +28,13 @@ namespace TankAssault
             float vertical = Input.GetAxis("Vertical");
 
             // Moves Player
-            Vector3 horizontalMovement = new Vector3(horizontal, 0);
+            Vector3 horizontalMovement = new Vector3(horizontal * _playerStats.Speed, 0);
             rb.velocity = horizontalMovement;
+        }
+
+        void Jump()
+        {
+
         }
     }
 }
