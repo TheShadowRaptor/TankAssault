@@ -21,7 +21,6 @@ namespace TankAssault
         // Components
         Camera cam;
 
-        //
         private void Start()
         {
             camObj = GameObject.Find("MainCamera");
@@ -38,7 +37,6 @@ namespace TankAssault
             {                                            // -2 & +2 are so the blocks spawn outside the screen as well
                 GameObject block = Instantiate(groundBlock);
                 groundBlocks.Add(block);
-
 
                 // Places the blocks
                 Vector3 pos = block.transform.position;
