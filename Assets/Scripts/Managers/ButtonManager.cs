@@ -19,8 +19,9 @@ namespace TankAssault
         // Methods
         public void TitleOnButton()
         {
-            _gameManager.ChangeState(_gameManager.MainmenuConst);
-            _uIManager.ChangeState(_uIManager.TitleConst);
+            // Changes states of GameManager and UI manager on button pressed
+            _gameManager.ChangeState(_gameManager.MainmenuStateConst);
+            _uIManager.ChangeState(_uIManager.TitleStateConst);
 
             if (_gameManager.CurrentGameState == GameManager.GameState.gameplay)
             {
@@ -31,12 +32,13 @@ namespace TankAssault
 
         public void SettingsOnButton()
         {
-            _uIManager.ChangeState(_uIManager.SettingsConst);
+            // Changes state of UIManager on button press
+            _uIManager.ChangeState(_uIManager.SettingsStateConst);
         }
 
         public void GameplayOnButton()
         {
-            _gameManager.ChangeState(_gameManager.GameplayConst);
+            _gameManager.ChangeState(_gameManager.GameplayStateConst);
             _levelManager.LoadScene(gameplaySceneConst);
         }
 

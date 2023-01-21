@@ -21,8 +21,8 @@ namespace TankAssault
         private const string settingsConst = "Settings";
 
         // Properties
-        public string TitleConst { get => titleConst; }
-        public string SettingsConst { get => settingsConst; }
+        public string TitleStateConst { get => titleConst; }
+        public string SettingsStateConst { get => settingsConst; }
 
         public MainmenuState CurrentMainmenuState { get => currentMainmenuState; }
         public MainmenuState PreviousMainmenuState { get => previousMainmenuState; }

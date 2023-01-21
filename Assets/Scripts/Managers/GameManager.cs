@@ -23,8 +23,8 @@ namespace TankAssault
 
 
         // Properties
-        public string MainmenuConst { get => mainmenuConst;  }
-        public string GameplayConst { get => gameplayConst;  }
+        public string MainmenuStateConst { get => mainmenuConst;  }
+        public string GameplayStateConst { get => gameplayConst;  }
         public string PauseConst { get => pauseConst;  }
         public GameState CurrentGameState { get => currentGameState; }
         public GameState PreviousGameState { get => previousGameState; }
