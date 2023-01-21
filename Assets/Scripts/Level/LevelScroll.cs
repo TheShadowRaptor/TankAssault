@@ -36,6 +36,7 @@ namespace TankAssault
 
             foreach (GameObject block in _groundGeneration.GroundBlocks)
             {
+                // Scroll blocks before reusing them at the beginning
                 Vector3 pos = block.transform.position;
 
                 if (pos.x < camBounds + 2) { pos.x += 1 * Time.deltaTime; }

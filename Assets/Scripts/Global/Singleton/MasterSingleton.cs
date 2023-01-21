@@ -15,12 +15,16 @@ namespace TankAssault
         private void Awake()
         {
             // Singleton
-            if (Instance != null && Instance != this)
+            if (Instance == null)
             {
-                Destroy(this);
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else if (Instance != this)
+            {
+                Destroy(gameObject);
                 return;
             }
-                Instance = this;
         }
     }
 }

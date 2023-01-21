@@ -53,6 +53,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6200796530861401322}
     m_Modifications:
+    - target: {fileID: 1835412316953974125, guid: 148e7d31cef969c4d95a2f3b2775b426, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835412316953974125, guid: 148e7d31cef969c4d95a2f3b2775b426, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431462126258933000, guid: 148e7d31cef969c4d95a2f3b2775b426, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431462126258933000, guid: 148e7d31cef969c4d95a2f3b2775b426, type: 3}
+      propertyPath: m_MaxValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5360427457833233072, guid: 148e7d31cef969c4d95a2f3b2775b426, type: 3}
       propertyPath: m_Name
       value: GameManager

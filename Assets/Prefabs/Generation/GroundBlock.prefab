@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8587568332946493524}
   - component: {fileID: 201622382018869276}
   - component: {fileID: 7308443352494377864}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GroundBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,5 +109,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1, y: 1}
   m_EdgeRadius: 0
