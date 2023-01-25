@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUDManager : MonoBehaviour
 {
     public Slider JumpChargeSlider;
-    PlayerStats _playerStats;
+    public PlayerStats _playerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +17,6 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_playerStats == null)
-        {
-            _playerStats = GameObject.Find("Player").GetComponent<PlayerStats>();
-        }
-
         UpdateSliders();
     }
 

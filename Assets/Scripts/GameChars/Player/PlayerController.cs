@@ -8,6 +8,10 @@ namespace TankAssault
     {
         [Header("Raycast")]
         public LayerMask ground;
+
+        [Header("GameObjects")]
+        public Rigidbody2D turret;
+
         // Scripts
         PlayerStats _playerStats;
 
@@ -15,7 +19,8 @@ namespace TankAssault
         Rigidbody2D rb2D;
 
         // Input
-        float horizontalInput;
+        float rotationInputTurret;
+        float movementInput;
         bool jumpInput;
 
         // switches
@@ -42,21 +47,29 @@ namespace TankAssault
         void HandleInput()
         {
             // Reads Input
-            horizontalInput = Input.GetAxis("Horizontal");
+            movementInput = Input.GetAxis("Horizontal");
+            rotationInputTurret = Input.GetAxis("Horizontal2");
             jumpInput = Input.GetButton("Jump"); 
 
         }
 
         void HandleMovement()
         {
-            // Moves Player if on ground
+            // Moves/Jump Player if on ground
             if (Grounded())
             {
-                Vector2 playerMovement = new Vector2(horizontalInput * _playerStats.MovementSpeed, jumpValue());
+                Vector2 playerMovement = new Vector2(movementInput * _playerStats.MovementSpeed, jumpValue());
                 rb2D.velocity = playerMovement;
             }
+
+            HandleTurretTurning();
+        }
+        void HandleTurretTurning()
+        {
+            turret.MoveRotation(turret.transform.localRotation * Quaternion.Euler(0, 0, -rotationInputTurret * _playerStats.RotationSpeedTurret * Time.deltaTime));
         }
 
+        //Returns jump value when input is pressed and fully charged
         float jumpValue()
         {
             if (jumpInput && _playerStats.JumpFullyCharged)
@@ -82,5 +95,6 @@ namespace TankAssault
                 return false;
             }
         }
+
     }
 }

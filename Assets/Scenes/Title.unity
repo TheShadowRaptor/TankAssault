@@ -248,6 +248,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588535536113439771, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662986907833504467, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1662986907833504467, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655983844313237763, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655983844313237763, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902375246304551235, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902375246304551235, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902375246360012493, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5680402159981693420, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_Name
       value: TankAssault Singleton
@@ -294,6 +326,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200796530861401322, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943693725641414267, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -7,6 +7,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] private int health;
     [SerializeField] private int movementSpeed;
+    [SerializeField] private int rotationSpeedTurret;
     [SerializeField] private int jumpPower;
     [SerializeField] private bool jumpFullyCharged;
 
@@ -17,6 +18,7 @@ public class PlayerStats : MonoBehaviour
     // Gets/Sets
     public int Health { get => health; }
     public int MovementSpeed { get => movementSpeed; }
+    public int RotationSpeedTurret { get => rotationSpeedTurret; }
     public int JumpPower { get => jumpPower; }
     public float MaxJumpCharge { get => maxJumpCharge; }
     public float JumpCharge { get => jumpCharge; }
