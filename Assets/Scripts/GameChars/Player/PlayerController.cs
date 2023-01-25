@@ -22,6 +22,7 @@ namespace TankAssault
         float rotationInputTurret;
         float movementInput;
         bool jumpInput;
+        bool shootInput;
 
         // switches
         // bool jumping = false;
@@ -37,6 +38,7 @@ namespace TankAssault
         void Update()
         {
             HandleInput();            
+            HandleShooting();
         }
 
         private void FixedUpdate()
@@ -49,7 +51,8 @@ namespace TankAssault
             // Reads Input
             movementInput = Input.GetAxis("Horizontal");
             rotationInputTurret = Input.GetAxis("Horizontal2");
-            jumpInput = Input.GetButton("Jump"); 
+            jumpInput = Input.GetButton("Jump");
+            shootInput = Input.GetButton("Shoot");
 
         }
 
@@ -64,9 +67,19 @@ namespace TankAssault
 
             HandleTurretTurning();
         }
+
         void HandleTurretTurning()
         {
             turret.MoveRotation(turret.transform.localRotation * Quaternion.Euler(0, 0, -rotationInputTurret * _playerStats.RotationSpeedTurret * Time.deltaTime));
+        }
+
+        void HandleShooting()
+        {
+            if (shootInput && _playerStats.CanShoot)
+            {
+                Debug.Log("Shooting");
+                _playerStats.ResetShootingTimer();
+            }
         }
 
         //Returns jump value when input is pressed and fully charged
@@ -80,6 +93,7 @@ namespace TankAssault
 
             return 0;
         }
+
 
         bool Grounded()
         {

@@ -22,7 +22,7 @@ public class HUDManager : MonoBehaviour
 
     void InitSliders()
     {
-        JumpChargeSlider.maxValue = _playerStats.MaxJumpCharge;
+        JumpChargeSlider.maxValue = _playerStats.BaseJumpCharge;
         JumpChargeSlider.value = _playerStats.JumpCharge;
     }
 
