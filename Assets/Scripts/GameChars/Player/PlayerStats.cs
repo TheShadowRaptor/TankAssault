@@ -18,7 +18,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int jumpPower;
 
     [Header("JumpCharge Settings")]
-    private float jumpCharge;
+    private float jumpCharge = 1;
     private bool jumpFullyCharged;
 
     [Header("ShootingSettings")]

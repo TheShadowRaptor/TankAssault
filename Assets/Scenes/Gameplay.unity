@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214566569}
   - component: {fileID: 214566570}
+  - component: {fileID: 214566571}
   m_Layer: 0
   m_Name: Generation
   m_TagString: Untagged
@@ -214,6 +215,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundBlock: {fileID: 4716480521761854458, guid: 14aae90f03038ae4c9d40e9714f10f82, type: 3}
+--- !u!114 &214566571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214566568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 211e01300ae467043b169f170f4217c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenery: {fileID: 6410303073219861019, guid: c9d9a4e60e2d6fa449d63642522e678a, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

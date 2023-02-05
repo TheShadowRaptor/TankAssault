@@ -6,21 +6,16 @@ namespace TankAssault
 {
     public class LevelScroll : MonoBehaviour
     {
-        // GameObject
-        GameObject camObj;
-
         //Scripts
         public GroundGeneration _groundGeneration;
 
         // Components
         SpriteRenderer spriteRenderer;
-        Camera cam;
 
         // Methods
         private void Start()
         {
-            camObj = GameObject.Find("MainCamera");
-            cam = camObj.GetComponent<Camera>();
+
         }
 
         private void FixedUpdate()
@@ -31,7 +26,7 @@ namespace TankAssault
         void ScrollBlocks()
         {
             // Determins CameraBounds
-            float camBounds = cam.orthographicSize * 2; // Gets half the camera size
+            float camBounds = Camera.main.orthographicSize * 2; // Gets half the camera size
             //==========================================
 
             foreach (GameObject block in _groundGeneration.GroundBlocks)

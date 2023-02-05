@@ -9,47 +9,41 @@ namespace TankAssault
         // Const
         private const string titleSceneConst = "Scenes/Title";
         private const string gameplaySceneConst = "Scenes/Gameplay";
-
-        // Scripts
-        [Header("Scripts")]
-        public GameManager _gameManager;
-        public UIManager _uIManager;
-        public LevelManager _levelManager;
     
         // Methods
         public void TitleOnButton()
         {
             // Changes states of GameManager and UI manager on button pressed
-            _gameManager.ChangeState(_gameManager.MainmenuStateConst);
-            _uIManager.ChangeState(_uIManager.TitleStateConst);
+            MasterSingleton.MS.gameManager.ChangeState(MasterSingleton.MS.gameManager.MainmenuStateConst);
+            MasterSingleton.MS.uIManager.ChangeState(MasterSingleton.MS.uIManager.TitleStateConst);
 
-            if (_gameManager.CurrentGameState == GameManager.GameState.gameplay)
+            if (MasterSingleton.MS.gameManager.CurrentGameState == GameManager.GameState.gameplay)
             {
                 // Only loads title when gameState == gameplay
-                _levelManager.LoadScene(titleSceneConst);
+                MasterSingleton.MS.levelManager.LoadScene(titleSceneConst);
             }
         }
 
         public void SettingsOnButton()
         {
             // Changes state of UIManager on button press
-            _uIManager.ChangeState(_uIManager.SettingsStateConst);
+            MasterSingleton.MS.uIManager.ChangeState(MasterSingleton.MS.uIManager.SettingsStateConst);
         }
 
         public void GameplayOnButton()
         {
-            _gameManager.ChangeState(_gameManager.GameplayStateConst);
-            _levelManager.LoadScene(gameplaySceneConst);
+            MasterSingleton.MS.gameManager.ChangeState(MasterSingleton.MS.gameManager.GameplayStateConst);
+            MasterSingleton.MS.levelManager.LoadScene(gameplaySceneConst);
         }
 
         public void BackButton()
         {
-            _uIManager.ChangeStateToPrevious();
+            MasterSingleton.MS.uIManager.ChangeStateToPrevious();
         }
 
         public void ExitGameButton()
         {
-            _levelManager.ExitGame();
+            MasterSingleton.MS.levelManager.ExitGame();
             Debug.Log("Exit");
         }
     }

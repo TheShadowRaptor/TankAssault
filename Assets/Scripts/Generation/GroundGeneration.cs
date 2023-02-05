@@ -16,23 +16,15 @@ namespace TankAssault
         [Header("Prefab")]
         public GameObject groundBlock;
 
-        GameObject camObj;
-
-        // Components
-        Camera cam;
-
         private void Start()
         {
-            camObj = GameObject.Find("MainCamera");
-            cam = camObj.GetComponent<Camera>();
-
             GenerateBlocks();
         }
 
         // Methods
         public void GenerateBlocks()
         {
-            float camBounds = cam.orthographicSize * 2; // Gets half the camera size
+            float camBounds = Camera.main.orthographicSize * 2; // Gets half the camera size
             for (int i = -2; i < camBounds * 2 + 2; i++) // Doubled the value for blocks to reach screen to screen. 
             {                                            // -2 & +2 are so the blocks spawn outside the screen as well
                 GameObject block = Instantiate(groundBlock);
