@@ -36,8 +36,8 @@ namespace TankAssault
                 // Scroll blocks before reusing them at the beginning
                 Vector3 pos = block.transform.position;
 
-                if (pos.x < camBounds + 2) { pos.x += 1 * Time.deltaTime; }
-                else pos.x = -camBounds - 2;
+                if (pos.x > -camBounds - 2) { pos.x -= 1 * Time.deltaTime; }
+                else pos.x = camBounds + 2;
             
                 block.transform.position = pos;
             }
@@ -56,8 +56,8 @@ namespace TankAssault
                     // Scroll blocks before reusing them at the beginning
                     Vector3 pos = prop.transform.position;
 
-                    if (pos.x < camBounds + 2) { pos.x += 1 * Time.deltaTime; }
-                    else pos.x = -camBounds - 2;
+                    if (pos.x > -camBounds - 2) { pos.x -= 1 * Time.deltaTime; }
+                    else pos.x = camBounds + 2;
 
                     prop.transform.position = pos;
                 }

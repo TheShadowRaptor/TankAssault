@@ -68,7 +68,7 @@ namespace TankAssault
             {
                 if (randomNum == 0)
                 {
-                    if (scenery[i].transform.position.x < -camBounds - 1.5f)
+                    if (scenery[i].transform.position.x > camBounds + 1.5f)
                     {
                         // replace prop
                         //scenery[i] = props[randomProp];
@@ -83,7 +83,7 @@ namespace TankAssault
             float camBounds = Camera.main.orthographicSize * 2; // Gets half the camera size
             foreach (GameObject prop in scenery)
             {
-                if (prop.transform.position.x > camBounds)
+                if (prop.transform.position.x < -camBounds)
                 {
                     prop.SetActive(false);
                 }
