@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSpawn : MonoBehaviour
+namespace TankAssault
 {
-    GameObject playerObj;
-    // Update is called once per frame
-    void Update()
+    public class PlayerSpawn : MonoBehaviour
     {
-        if (playerObj == null)
+        GameObject playerObj;
+        // Update is called once per frame
+        void Update()
         {
-            playerObj = GameObject.Find("Player");
-        }
+            if (playerObj == null)
+            {
+                playerObj = GameObject.Find("Player");
+            }
 
-        playerObj.transform.position = this.gameObject.transform.position;
+            playerObj.transform.position = this.gameObject.transform.position;
 
-        if (playerObj.transform.position == this.transform.position)
-        {
-            Destroy(gameObject);
+            if (playerObj.transform.position == this.transform.position)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

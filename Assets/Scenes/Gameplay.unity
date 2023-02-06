@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _groundGeneration: {fileID: 214566570}
+  _sceneryGeneration: {fileID: 214566571}
 --- !u!1 &214566568
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +228,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211e01300ae467043b169f170f4217c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenery: {fileID: 6410303073219861019, guid: c9d9a4e60e2d6fa449d63642522e678a, type: 3}
+  emptyWeight: 300
+  props:
+  - {fileID: 6410303073219861019, guid: c9d9a4e60e2d6fa449d63642522e678a, type: 3}
+  - {fileID: 1952627344146183308, guid: a3ef41dcab0f00d468b6fed7943f4871, type: 3}
+  - {fileID: 6044677330283161382, guid: 1da9966029e73af4d9e9c2b092dc8208, type: 3}
+  _groundGeneration: {fileID: 214566570}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

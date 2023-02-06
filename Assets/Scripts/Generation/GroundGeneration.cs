@@ -36,7 +36,6 @@ namespace TankAssault
                 pos.y = -camBounds / 2;
                 block.transform.position = pos;
             }
-            Debug.Log(camBounds);
         }
     }
 }

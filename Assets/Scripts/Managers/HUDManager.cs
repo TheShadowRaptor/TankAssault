@@ -3,31 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HUDManager : MonoBehaviour
+namespace TankAssault
 {
-    public Slider JumpChargeSlider;
-    public PlayerStats _playerStats;
-
-    // Start is called before the first frame update
-    void Start()
+    public class HUDManager : MonoBehaviour
     {
-        InitSliders();
-    }
+        public Slider JumpChargeSlider;
+        public PlayerStats _playerStats;
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateSliders();
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
+            InitSliders();
+        }
 
-    void InitSliders()
-    {
-        JumpChargeSlider.maxValue = _playerStats.BaseJumpCharge;
-        JumpChargeSlider.value = _playerStats.JumpCharge;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            UpdateSliders();
+        }
 
-    void UpdateSliders()
-    {
-        JumpChargeSlider.value = _playerStats.JumpCharge;
+        void InitSliders()
+        {
+            JumpChargeSlider.maxValue = _playerStats.BaseJumpCharge;
+            JumpChargeSlider.value = _playerStats.JumpCharge;
+        }
+
+        void UpdateSliders()
+        {
+            JumpChargeSlider.value = _playerStats.JumpCharge;
+        }
     }
 }
