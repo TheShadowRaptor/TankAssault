@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.95686275, a: 1}
+  m_Color: {r: 0, g: 0.6320754, b: 0.034419995, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -159,7 +159,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 8
-  turret: {fileID: 7204922958055307394}
+  turretRb: {fileID: 7204922958055307394}
+  bulletSpawnerObj: {fileID: 2101306446533983729}
+  bulletObj: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
 --- !u!114 &963435809289379860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +181,7 @@ MonoBehaviour:
   shootingTimer: 0.5
   shootingSpeed: 0
   bulletPower: 0
-  bulletSpeed: 0
+  bulletSpeed: 50
   canShoot: 0
 --- !u!50 &963435809289379862
 Rigidbody2D:
@@ -218,6 +220,37 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.011439264}
   serializedVersion: 2
   m_Radius: 0.48856074
+--- !u!1 &2101306446533983729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680587021226317014}
+  m_Layer: 0
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1680587021226317014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101306446533983729}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.494, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 313989429381550007}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2180324299435999535
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,7 +325,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9564264, a: 1}
+  m_Color: {r: 0, g: 0.7924528, b: 0.04240052, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -330,7 +363,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.596, z: 0}
   m_LocalScale: {x: 0.2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1680587021226317014}
   m_Father: {fileID: 3530818324947038605}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -374,9 +408,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.95686275, a: 1}
+  m_Color: {r: 0, g: 0.79215693, b: 0.043137256, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
