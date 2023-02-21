@@ -260,6 +260,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: ammo.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: ammo.Array.data[0]
+      value: 
+      objectReference: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
+    - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: ammo.Array.data[1]
+      value: 
+      objectReference: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
+    - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: ammo.Array.data[2]
+      value: 
+      objectReference: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
     - target: {fileID: 4655983844313237763, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

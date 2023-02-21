@@ -16,6 +16,8 @@ namespace TankAssault
         public GameObject bulletSpawnerObj;
         public GameObject bulletObj;
         public List<GameObject> ammo = new List<GameObject>();
+        public int currentBulletCount = 0;
+        public int maxBulletCount = 3;
 
         // Scripts
         PlayerStats _playerStats;
@@ -85,10 +87,25 @@ namespace TankAssault
             {
                 Debug.Log("Shooting");
 
-                GameObject bullet = Instantiate(bulletObj);
-                ammo.Add(bullet);
-                bullet.transform.position = bulletSpawnerObj.transform.position;
-                bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
+                if (currentBulletCount < maxBulletCount)
+                {
+                    GameObject bullet = Instantiate(bulletObj);
+                    ammo.Add(bullet);
+                    bullet.transform.position = bulletSpawnerObj.transform.position;
+                    bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
+                    currentBulletCount++;
+                }
+                else
+                {
+                    foreach (GameObject bullet in ammo)
+                    {
+                        if (bullet.activeSelf == false)
+                        {
+                            bullet.transform.position = bulletSpawnerObj.transform.position;
+                            bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
+                        }
+                    }
+                }
                 _playerStats.ResetShootingTimer();
             }
 
