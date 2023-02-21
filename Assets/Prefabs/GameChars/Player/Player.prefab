@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 9
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0.6320754, b: 0.034419995, a: 1}
   m_FlipX: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   turretRb: {fileID: 7204922958055307394}
   bulletSpawnerObj: {fileID: 2101306446533983729}
   bulletObj: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
+  ammo: []
 --- !u!114 &963435809289379860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,7 +409,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 8
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.79215693, b: 0.043137256, a: 1}
   m_FlipX: 0

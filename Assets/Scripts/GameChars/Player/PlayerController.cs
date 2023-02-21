@@ -88,6 +88,7 @@ namespace TankAssault
                 GameObject bullet = Instantiate(bulletObj);
                 ammo.Add(bullet);
                 bullet.transform.position = bulletSpawnerObj.transform.position;
+                bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
                 _playerStats.ResetShootingTimer();
             }
 
@@ -95,10 +96,7 @@ namespace TankAssault
             {
                 foreach (GameObject bullet in ammo)
                 {
-                    Vector3 bulletPos = bullet.transform.position;
-                    bulletPos.y += _playerStats.ShootingSpeed * Time.deltaTime;
-                    bullet.transform.position = bulletPos;
-                    Debug.Log("BulletSpeed " + bulletPos.y);
+                    bullet.transform.Translate(bulletSpawnerObj.transform.up * _playerStats.BulletSpeed * Time.deltaTime);
                 }
             }
         }
