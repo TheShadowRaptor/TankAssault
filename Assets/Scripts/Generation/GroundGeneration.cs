@@ -25,9 +25,10 @@ namespace TankAssault
         public void GenerateBlocks()
         {
             float camBounds = Camera.main.orthographicSize * 2; // Gets half the camera size
+            Transform parentObject = gameObject.transform; // Organizes blocks
             for (int i = -2; i < camBounds * 2 + 2; i++) // Doubled the value for blocks to reach screen to screen. 
             {                                            // -2 & +2 are so the blocks spawn outside the screen as well
-                GameObject block = Instantiate(groundBlock);
+                GameObject block = Instantiate(groundBlock, parentObject);
                 groundBlocks.Add(block);
 
                 // Places the blocks

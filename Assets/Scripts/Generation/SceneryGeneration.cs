@@ -43,9 +43,10 @@ namespace TankAssault
         {
             // Generate Scenery Props on blocks
             randomProp = Random.Range(0, props.Count);
+            Transform parentObject = gameObject.transform; // Organizes blocks
             if (sceneryNum != _groundGeneration.GroundBlocks.Count)
             {
-                GameObject prop = Instantiate(props[randomProp]);
+                GameObject prop = Instantiate(props[randomProp], parentObject);
                 scenery.Add(prop);
 
                 Vector3 pos = prop.transform.position;
