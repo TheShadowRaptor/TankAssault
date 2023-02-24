@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1388070056912307590, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1662986907833504467, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -343,6 +347,14 @@ PrefabInstance:
     - target: {fileID: 6200796530861401322, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787663308313715786, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: bulletSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787663308313715786, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: shootingTimer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7943693725641414267, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_LocalPosition.y

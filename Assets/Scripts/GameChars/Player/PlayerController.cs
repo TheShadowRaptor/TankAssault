@@ -12,12 +12,8 @@ namespace TankAssault
         [Header("GameObjects")]
         public Rigidbody2D turretRb;
 
-        [Header("Bullets")]
-        public GameObject bulletSpawnerObj;
-        public GameObject bulletObj;
-        public List<GameObject> ammo = new List<GameObject>();
-        public int currentBulletCount = 0;
-        public int maxBulletCount = 3;
+        [Header("Scripts")]
+        public ShootingController playerShootingController;
 
         // Scripts
         PlayerStats _playerStats;
@@ -26,26 +22,29 @@ namespace TankAssault
         Rigidbody2D rb2D;
 
         // Input
-        float rotationInputTurret;
+        float turretRotationInput;
         float movementInput;
         bool jumpInput;
         bool shootInput;
 
-        // switches
-        // bool jumping = false;
+        // Gets/Sets
+        public float TurretRotationInput { get => turretRotationInput; }
+        public float MovementInput { get => movementInput; }
+        public bool JumpInput { get => jumpInput; }
+        public bool ShootInput { get => shootInput; }
+        //---------------------------------------------------------------
 
         // Start is called before the first frame update
         void Start()
         {
-            rb2D = GetComponent<Rigidbody2D>();
-            _playerStats = GetComponent<PlayerStats>();
+            rb2D = this.gameObject.GetComponent<Rigidbody2D>();
+            _playerStats = this.gameObject.GetComponent<PlayerStats>();
         }
 
         // Update is called once per frame
         void Update()
         {
             HandleInput();            
-            HandleShooting();
         }
 
         private void FixedUpdate()
@@ -58,10 +57,15 @@ namespace TankAssault
             // Reads Input
             if (MasterSingleton.MS.gameManager.CurrentGameState != GameManager.GameState.gameplay) return;
             movementInput = Input.GetAxis("Horizontal");
-            rotationInputTurret = Input.GetAxis("Horizontal2");
+            turretRotationInput = Input.GetAxis("Horizontal2");
             jumpInput = Input.GetButton("Jump");
             shootInput = Input.GetButton("Shoot");
 
+            // Calls to other scripts
+            if (shootInput)
+            {
+                playerShootingController.inputDetected = true;
+            }
         }
 
         void HandleMovement()
@@ -78,45 +82,11 @@ namespace TankAssault
 
         void HandleTurretTurning()
         {
-            turretRb.MoveRotation(turretRb.transform.localRotation * Quaternion.Euler(0, 0, -rotationInputTurret * _playerStats.RotationSpeedTurret * Time.deltaTime));
-        }
+            float rotationAmount = turretRotationInput * _playerStats.RotationSpeedTurret * Time.deltaTime;
 
-        void HandleShooting()
-        {
-            if (shootInput && _playerStats.CanShoot)
-            {
-                Debug.Log("Shooting");
-
-                if (currentBulletCount < maxBulletCount)
-                {
-                    GameObject bullet = Instantiate(bulletObj);
-                    ammo.Add(bullet);
-                    bullet.transform.position = bulletSpawnerObj.transform.position;
-                    bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
-                    currentBulletCount++;
-                }
-                else
-                {
-                    foreach (GameObject bullet in ammo)
-                    {
-                        if (bullet.activeSelf == false)
-                        {
-                            bullet.transform.position = bulletSpawnerObj.transform.position;
-                            bullet.transform.rotation = bulletSpawnerObj.transform.localRotation;
-                        }
-                    }
-                }
-                _playerStats.ResetShootingTimer();
-            }
-
-            if (ammo.Count > 0)
-            {
-                foreach (GameObject bullet in ammo)
-                {
-                    bullet.transform.Translate(bulletSpawnerObj.transform.up * _playerStats.BulletSpeed * Time.deltaTime);
-                }
-            }
-        }
+            // Rotate the turret game object around its z-axis (which is pointing up)
+            turretRb.transform.Rotate(0f, 0f, rotationAmount);
+        }        
 
         //Returns jump value when input is pressed and fully charged
         float jumpValue()
@@ -129,7 +99,6 @@ namespace TankAssault
 
             return 0;
         }
-
 
         bool Grounded()
         {
@@ -145,6 +114,5 @@ namespace TankAssault
                 return false;
             }
         }
-
     }
 }
