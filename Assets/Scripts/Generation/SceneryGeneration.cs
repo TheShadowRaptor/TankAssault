@@ -56,7 +56,6 @@ namespace TankAssault
                 prop.SetActive(false);
 
                 sceneryNum++;
-                Debug.Log("sceneryNum " + sceneryNum);
             }   
         }
 

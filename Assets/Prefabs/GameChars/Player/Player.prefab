@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4554726617200842773}
   - component: {fileID: 9043841831423002844}
   m_Layer: 0
-  m_Name: Graphic
+  m_Name: BaseGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -23,6 +23,8 @@ namespace TankAssault
 
         [HideInInspector] public bool inputDetected = false;
 
+        public bool isEnemyTurret = false;
+
         // Resets
         protected float baseShootingTimer;
 
@@ -49,7 +51,6 @@ namespace TankAssault
                 inputDetected = false;
                 if (canShoot)
                 {
-                    Debug.Log("Shooting");
 
                     if (currentBulletCount < maxBulletCount)
                     {
@@ -59,9 +60,6 @@ namespace TankAssault
                         bullet.transform.right = transform.right.normalized;
 
                         currentBulletCount++;
-                        Debug.Log("rotationLocal " + gameObject.transform.localRotation);
-                        Debug.Log("rotation " + gameObject.transform.rotation);
-                        Debug.Log("bulletRotation " + bullet.transform.rotation);
                     }
                     else
                     {
@@ -78,12 +76,21 @@ namespace TankAssault
                 }
             }
 
+            Vector3 direction;
             // Bullet Movement
             if (ammo.Count > 0)
             {
                 foreach (GameObject bullet in ammo)
                 {
-                    bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.up * bulletSpeed;
+                    if (isEnemyTurret)
+                    {
+                        direction = -transform.up;
+                    }
+                    else
+                    {
+                        direction = transform.up;
+                    }
+                    bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
                 }
             }
         }
