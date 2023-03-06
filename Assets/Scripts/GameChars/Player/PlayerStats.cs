@@ -34,8 +34,9 @@ namespace TankAssault
             baseJumpCharge = jumpCharge;
         }
 
-        private void Update()
+        protected override void Update()
         {
+            CheckStatus();
             HandleJumpCharge();
         }
 

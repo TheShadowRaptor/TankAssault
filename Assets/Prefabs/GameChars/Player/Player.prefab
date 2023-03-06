@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef0a08a3c386794bbbec2b4ac558a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 2
   movementSpeed: 5
   rotationSpeedTurret: 100
   jumpPower: 15
@@ -265,7 +265,7 @@ MonoBehaviour:
   shootingTimer: 1
   bulletSpeed: 30
   shootingSpeed: 0
-  bulletPower: 0
+  bulletDamage: 0
   inputDetected: 0
   isEnemyTurret: 0
   autoShoot: 0

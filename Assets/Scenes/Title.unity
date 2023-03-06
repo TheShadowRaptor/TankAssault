@@ -264,6 +264,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2078106437863844982, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: bulletType
+      value: 
+      objectReference: {fileID: 6595839562419030761, guid: 931b80b22fc7b964ea4bb02a908c33b5, type: 3}
+    - target: {fileID: 2078106437863844982, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: bulletDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: ammo.Array.size
       value: 0

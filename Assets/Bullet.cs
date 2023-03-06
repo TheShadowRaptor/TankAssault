@@ -7,6 +7,7 @@ namespace TankAssault
     public class Bullet : MonoBehaviour
     {
         public float bulletSpeed;
+        public int bulletDamage;
         // Start is called before the first frame update
         void Start()
         {

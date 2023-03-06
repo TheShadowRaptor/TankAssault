@@ -2,19 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+namespace TankAssault
 {
-    [Header("Settings")]
-    public int health = 2;
-    // Start is called before the first frame update
-    void Start()
+    public class EnemyStats : CharacterStats
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            
+        }
     }
 }

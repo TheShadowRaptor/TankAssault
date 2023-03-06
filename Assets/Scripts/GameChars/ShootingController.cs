@@ -18,7 +18,7 @@ namespace TankAssault
         public float shootingTimer;
         public float bulletSpeed;
         public float shootingSpeed;
-        public float bulletPower;
+        public int bulletDamage;
         protected bool canShoot;
 
         [HideInInspector] public bool inputDetected = false;
@@ -75,6 +75,7 @@ namespace TankAssault
             {
                 // Get the first bullet from the list             
                 bullets[0].GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+                bullets[0].GetComponent<Bullet>().bulletDamage = bulletDamage;
                 bullets[0].transform.position = gameObject.transform.position;
                 bullets[0].transform.rotation = gameObject.transform.rotation;
                 bullets[0].SetActive(true);
