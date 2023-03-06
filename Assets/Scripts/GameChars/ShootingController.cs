@@ -7,12 +7,12 @@ namespace TankAssault
     public class ShootingController : MonoBehaviour
     {
         [Header("Customization")]
-        public List<GameObject> bulletTypes = new List<GameObject>();
+        public GameObject bulletType;
 
         [Header("Bullets")]
-        public List<GameObject> ammo = new List<GameObject>();
+        public List<GameObject> bullets = new List<GameObject>();
         public int currentBulletCount = 0;
-        public int maxBulletCount = 3;
+        public int initialCapacity = 3;
 
         [Header("ShootingSettings")]
         public float shootingTimer;
@@ -35,6 +35,7 @@ namespace TankAssault
         void Start()
         {
             baseShootingTimer = shootingTimer;
+            BulletPoolInstantiation();
         }
 
         // Update is called once per frame
@@ -44,6 +45,17 @@ namespace TankAssault
             BulletManager();
         }
 
+        public void BulletPoolInstantiation()
+        {
+            Transform parentObject = gameObject.transform; // Organizes bullets
+            for (int i = 0; i < initialCapacity; i++)
+            {
+                GameObject bullet = Instantiate(bulletType, parentObject);
+                bullets.Add(bullet);
+                bullets[i].SetActive(false);
+            }
+        }
+
         void BulletManager()
         {
             if (inputDetected || autoShoot)
@@ -51,47 +63,28 @@ namespace TankAssault
                 inputDetected = false;
                 if (canShoot)
                 {
-
-                    if (currentBulletCount < maxBulletCount)
-                    {
-                        GameObject bullet = Instantiate(bulletTypes[0], gameObject.transform.position, Quaternion.identity);
-                        ammo.Add(bullet);
-
-                        bullet.transform.right = transform.right.normalized;
-
-                        currentBulletCount++;
-                    }
-                    else
-                    {
-                        foreach (GameObject bullet in ammo)
-                        {
-                            if (bullet.activeSelf == false)
-                            {
-                                //bullet.transform.position = gameObject.transform.position;
-                                //bullet.transform.localRotation = gameObject.transform.rotation;
-                            }
-                        }
-                    }
+                    GetBullet();     
                     ResetShootingDelayTimer();
                 }
             }
+        }
 
-            Vector3 direction;
-            // Bullet Movement
-            if (ammo.Count > 0)
+        public void GetBullet()
+        {
+            if (bullets.Count > 0)
             {
-                foreach (GameObject bullet in ammo)
-                {
-                    if (isEnemyTurret)
-                    {
-                        direction = -transform.up;
-                    }
-                    else
-                    {
-                        direction = transform.up;
-                    }
-                    bullet.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
-                }
+                // Get the first bullet from the list             
+                bullets[0].GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+                bullets[0].transform.position = gameObject.transform.position;
+                bullets[0].transform.rotation = gameObject.transform.rotation;
+                bullets[0].SetActive(true);
+                ReturnBullet(bullets[0]);
+                bullets.RemoveAt(0);
+            }
+            else
+            {
+                // If the pool is empty, create a new bullet
+                bulletType = new GameObject();
             }
         }
 
@@ -106,9 +99,16 @@ namespace TankAssault
             else canShoot = false;
         }
 
+        public void ReturnBullet(GameObject bullet)
+        {
+            // Sets bullet.SetActivate to false
+            bullets.Add(bullet);
+        }
+
         public void ResetShootingDelayTimer()
         {
             shootingTimer = baseShootingTimer;
         }
     }
 }
+

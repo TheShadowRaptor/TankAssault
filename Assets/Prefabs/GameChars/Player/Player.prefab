@@ -258,16 +258,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11b3a5c9ceb94444ad896a8ec68cbea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletTypes:
-  - {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
-  ammo: []
+  bulletType: {fileID: 6595839562419030761, guid: 23503bf478ca0e14ab401207ecfdf930, type: 3}
+  bullets: []
   currentBulletCount: 0
-  maxBulletCount: 6
+  initialCapacity: 5
   shootingTimer: 1
-  bulletSpeed: 20
+  bulletSpeed: 30
   shootingSpeed: 0
   bulletPower: 0
   inputDetected: 0
+  isEnemyTurret: 0
   autoShoot: 0
 --- !u!1 &2180324299435999535
 GameObject:
