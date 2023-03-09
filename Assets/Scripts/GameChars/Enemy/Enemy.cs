@@ -29,7 +29,8 @@ namespace TankAssault
         {
             if (other.gameObject.CompareTag("PlayerBullet"))
             {
-                Debug.Log("hit");
+                // Take Damage from player bullet
+                //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<EnemyStats>().TakeDamage(damage);
                 other.gameObject.SetActive(false);

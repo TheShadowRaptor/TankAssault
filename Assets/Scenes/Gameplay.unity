@@ -683,7 +683,7 @@ MonoBehaviour:
   shootingTimer: 1
   bulletSpeed: 20
   shootingSpeed: 0
-  bulletDamage: 0
+  bulletDamage: 1
   inputDetected: 0
   isEnemyTurret: 1
   autoShoot: 1

@@ -6,12 +6,16 @@ namespace TankAssault
 {
     public class PlayerStats : CharacterStats
     {
-        // Resets
-        private float baseJumpCharge;
+        // Reset values
+        float jumpChargeReset;
+        int healthReset;
+        int movementSpeedReset;
+        int turretRotationSpeedReset;
+        int jumpPowerReset;
 
         // Variables
         [Header("Movement Settings")]
-        [SerializeField] private int rotationSpeedTurret;
+        [SerializeField] private int turretRotationSpeed;
         [SerializeField] private int jumpPower;
 
         [Header("JumpCharge Settings")]
@@ -19,10 +23,10 @@ namespace TankAssault
         private bool jumpFullyCharged;
 
         // Gets/Sets
-        public int RotationSpeedTurret { get => rotationSpeedTurret; }
+        public int TurretRotationSpeed { get => turretRotationSpeed; }
         public int JumpPower { get => jumpPower; }
         //---------------------------------------------------------------
-        public float BaseJumpCharge { get => baseJumpCharge; }
+        public float JumpChargeReset { get => jumpChargeReset; }
         public float JumpCharge { get => jumpCharge; }
         public bool JumpFullyCharged { get => jumpFullyCharged; }
         //===============================================================
@@ -31,13 +35,22 @@ namespace TankAssault
         void Start()
         {
             // init
-            baseJumpCharge = jumpCharge;
+            InitResetStats();
         }
 
-        protected override void Update()
+        protected void Update()
         {
             CheckStatus();
             HandleJumpCharge();
+            if (!isAlive)
+            {
+                CallGameover();
+            }
+        }
+
+        void CallGameover()
+        {
+            MasterSingleton.MS.gameManager.ChangeState(MasterSingleton.MS.gameManager.GameoverConst);
         }
 
         void HandleJumpCharge()
@@ -45,9 +58,9 @@ namespace TankAssault
             float chargeIncrease = 0.5f;
 
             jumpCharge += chargeIncrease * Time.deltaTime;
-            if (jumpCharge >= baseJumpCharge)
+            if (jumpCharge >= jumpChargeReset)
             {
-                jumpCharge = baseJumpCharge;
+                jumpCharge = jumpChargeReset;
                 jumpFullyCharged = true;
             }
             else jumpFullyCharged = false;
@@ -56,6 +69,23 @@ namespace TankAssault
         public void ResetJumpCharge()
         {
             jumpCharge = 0;
+        }
+
+        public override void ResetStats()
+        {
+            health = healthReset;
+            movementSpeed = movementSpeedReset;
+            jumpCharge = jumpChargeReset;
+            turretRotationSpeed = turretRotationSpeedReset;
+            jumpPower = jumpPowerReset;
+        }
+        void InitResetStats()
+        {
+            healthReset = health;
+            movementSpeedReset = movementSpeed;
+            jumpChargeReset = jumpCharge;
+            turretRotationSpeedReset = turretRotationSpeed;
+            jumpPowerReset = jumpPower;
         }
     }
 }

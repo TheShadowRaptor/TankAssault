@@ -11,9 +11,10 @@ namespace TankAssault
         {
             title,
             settings,
+            gameover
         }
 
-        MainmenuState currentMainmenuState;
+        public MainmenuState currentMainmenuState;
         MainmenuState previousMainmenuState;
 
         // Consts
@@ -33,6 +34,7 @@ namespace TankAssault
         public Canvas settingsCanvas;
         public Canvas gameplayCanvas;
         public Canvas pauseCanvas;
+        public Canvas gameoverCanvas;
 
         //Scripts
         [Header("Scripts")]
@@ -57,6 +59,10 @@ namespace TankAssault
                 case GameManager.GameState.pause:
                     ShowPauseCanvas();
                     break;
+
+                case GameManager.GameState.gameover:
+                    ShowGameoverCanvas();
+                    break;
             }
         }
 
@@ -68,6 +74,7 @@ namespace TankAssault
                 settingsCanvas.enabled = false;
                 gameplayCanvas.enabled = false;
                 pauseCanvas.enabled = false;
+                gameoverCanvas.enabled = false;
             }
         }
 
@@ -79,6 +86,7 @@ namespace TankAssault
                 settingsCanvas.enabled = true;
                 gameplayCanvas.enabled = false;
                 pauseCanvas.enabled = false;
+                gameoverCanvas.enabled = false;
             }
         }
 
@@ -88,6 +96,7 @@ namespace TankAssault
             settingsCanvas.enabled = false;
             gameplayCanvas.enabled = true;
             pauseCanvas.enabled = false;
+            gameoverCanvas.enabled = false;
         }
 
         void ShowPauseCanvas()
@@ -96,7 +105,17 @@ namespace TankAssault
             settingsCanvas.enabled = false;
             gameplayCanvas.enabled = false;
             pauseCanvas.enabled = true;
+            gameoverCanvas.enabled = false;
         }
+        void ShowGameoverCanvas()
+        {
+            titleCanvas.enabled = false;
+            settingsCanvas.enabled = false;
+            gameplayCanvas.enabled = false;
+            pauseCanvas.enabled = false;
+            gameoverCanvas.enabled = true;
+        }
+
 
         public void ChangeState(string stateName)
         {

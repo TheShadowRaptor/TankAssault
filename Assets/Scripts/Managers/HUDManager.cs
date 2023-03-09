@@ -24,7 +24,7 @@ namespace TankAssault
 
         void InitSliders()
         {
-            JumpChargeSlider.maxValue = _playerStats.BaseJumpCharge;
+            JumpChargeSlider.maxValue = _playerStats.JumpChargeReset;
             JumpChargeSlider.value = _playerStats.JumpCharge;
         }
 

@@ -8,6 +8,7 @@ namespace TankAssault
     {
         [Header("Raycast")]
         public LayerMask ground;
+        public float rayDist = 0.5f;
 
         [Header("GameObjects")]
         public Rigidbody2D turretRb;
@@ -82,7 +83,7 @@ namespace TankAssault
 
         void HandleTurretTurning()
         {
-            float rotationAmount = turretRotationInput * _playerStats.RotationSpeedTurret * Time.deltaTime;
+            float rotationAmount = turretRotationInput * _playerStats.TurretRotationSpeed * Time.deltaTime;
 
             // Rotate the turret game object around its z-axis (which is pointing up)
             turretRb.transform.Rotate(0f, 0f, rotationAmount);
@@ -103,8 +104,7 @@ namespace TankAssault
         bool Grounded()
         {
             // Checks if player is touching the ground
-            float dist = 0.5f;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, dist, ground);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.down, rayDist, ground);
             if (hit.collider != null)
             {
                 return true;
@@ -112,6 +112,18 @@ namespace TankAssault
             else
             {               
                 return false;
+            }
+        }
+
+        protected void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("EnemyBullet"))
+            {
+                // Take Damage from enemy bullet
+                //Debug.Log("hit");
+                int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
+                this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
+                other.gameObject.SetActive(false);
             }
         }
     }

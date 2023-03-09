@@ -19,11 +19,6 @@ namespace TankAssault
         public int MovementSpeed { get => movementSpeed; }
         //===============================================================
 
-        protected virtual void Update()
-        {
-            CheckStatus();
-        }
-
         public void TakeDamage(int damage)
         {
             health -= damage;
@@ -35,12 +30,10 @@ namespace TankAssault
             {
                 health = 0;
                 isAlive = false;
-                Deactivate();
             }
             else
             {
                 isAlive = true;
-                Activate();
             }
         }
 
@@ -52,6 +45,11 @@ namespace TankAssault
         protected void Activate()
         {
             this.gameObject.SetActive(true);
+        }
+
+        public virtual void ResetStats()
+        {
+
         }
     }
 }

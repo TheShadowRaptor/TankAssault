@@ -10,22 +10,25 @@ namespace TankAssault
         {
             mainmenu,
             gameplay,
-            pause
+            pause,
+            gameover
         }
 
-        GameState currentGameState;
+        public GameState currentGameState;
         GameState previousGameState;
 
         // Consts
         private const string mainmenuConst = "Mainmenu";
         private const string gameplayConst = "Gameplay";
         private const string pauseConst = "Pause";
+        private const string gameoverConst = "Gameover";
 
 
         // Properties
         public string MainmenuStateConst { get => mainmenuConst;  }
         public string GameplayStateConst { get => gameplayConst;  }
         public string PauseConst { get => pauseConst;  }
+        public string GameoverConst { get => gameoverConst;  }
         public GameState CurrentGameState { get => currentGameState; }
         public GameState PreviousGameState { get => previousGameState; }
 
@@ -43,14 +46,22 @@ namespace TankAssault
             {
                 case mainmenuConst:
                     currentGameState = GameState.mainmenu;
+                    Time.timeScale = 0;
                     break;
 
                 case gameplayConst:
                     currentGameState = GameState.gameplay;
+                    Time.timeScale = 1;
                     break;
 
                 case pauseConst:
                     currentGameState = GameState.pause;
+                    Time.timeScale = 0;
+                    break;
+
+                case gameoverConst:
+                    currentGameState = GameState.gameover;
+                    Time.timeScale = 0;
                     break;
             }
         }

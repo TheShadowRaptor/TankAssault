@@ -47,7 +47,7 @@ namespace TankAssault
 
         public void BulletPoolInstantiation()
         {
-            Transform parentObject = gameObject.transform; // Organizes bullets
+            Transform parentObject = GameObject.Find("BulletPool").transform; // Organizes bullets
             for (int i = 0; i < initialCapacity; i++)
             {
                 GameObject bullet = Instantiate(bulletType, parentObject);
