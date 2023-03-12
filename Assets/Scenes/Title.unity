@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &129394971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9196707293418726238, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+  m_PrefabInstance: {fileID: 4902375247483416538}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef0a08a3c386794bbbec2b4ac558a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047446891
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1047446892
 AudioListener:
   m_ObjectHideFlags: 0
@@ -276,6 +287,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1328045850136343603, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: spawners.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328045850136343603, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: enemyTypes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1328045850136343603, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: enemyTypes.Array.data[0]
+      value: 
+      objectReference: {fileID: 5536268428259680009, guid: e4d3cdc34196d6d4194a1ab1063cf329, type: 3}
+    - target: {fileID: 1328045850136343603, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: enemyTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 8465972103884123362, guid: 5afed174db22ed44487139a3c53d6d56, type: 3}
     - target: {fileID: 1388070056912307590, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -295,6 +322,14 @@ PrefabInstance:
     - target: {fileID: 2078106437863844982, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: bulletDamage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3721714464337519028, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 129394971}
+    - target: {fileID: 3721714464337519028, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetStats
       objectReference: {fileID: 0}
     - target: {fileID: 3850740887566462307, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: ammo.Array.size
@@ -408,6 +443,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6200796530861401322, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6787663308313715786, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: bulletSpeed
       value: 20
@@ -418,6 +457,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943693725641414267, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478694488486098630, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478694488486098630, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478694488486098630, guid: 5444e6dd7d4f98f49b80f02a7897a28c, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

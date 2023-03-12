@@ -8,6 +8,7 @@ namespace TankAssault
     {
         [Header("Stat Settings")]
         [SerializeField] protected int health;
+        [SerializeField] protected int bodyDamage;
         protected bool isAlive;
 
         [Header("Movement Settings")]
@@ -17,6 +18,7 @@ namespace TankAssault
         public int Health { get => health; }
         //---------------------------------------------------------------
         public int MovementSpeed { get => movementSpeed; }
+        public int Damage { get => bodyDamage; }
         //===============================================================
 
         public void TakeDamage(int damage)

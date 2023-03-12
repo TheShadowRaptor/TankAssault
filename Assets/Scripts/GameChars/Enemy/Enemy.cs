@@ -9,7 +9,7 @@ namespace TankAssault
         protected PlayerController _player;
         [Header("GameObjects")]
         [SerializeField] protected GameObject enemyTurret;
-        [SerializeField] protected GameObject spawnPoint;
+        protected Vector3 spawnPoint;
 
         [Header("Scripts")]
         [SerializeField] protected EnemyStats enemyStats;
@@ -49,7 +49,7 @@ namespace TankAssault
         {
             rb.velocity = -transform.up * enemyStats.MovementSpeed * Time.deltaTime;
 
-            float distance = Vector2.Distance(transform.position, spawnPoint.transform.position);
+            float distance = Vector2.Distance(transform.position, spawnPoint);
 
             if (distance > entryDistance) spawning = false;
         }

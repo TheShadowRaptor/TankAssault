@@ -24,13 +24,13 @@ namespace TankAssault
 
         void InitSliders()
         {
-            JumpChargeSlider.maxValue = _playerStats.JumpChargeReset;
-            JumpChargeSlider.value = _playerStats.JumpCharge;
+            //JumpChargeSlider.maxValue = _playerStats.JumpChargeReset;
+            //JumpChargeSlider.value = _playerStats.JumpCharge;
         }
 
         void UpdateSliders()
         {
-            JumpChargeSlider.value = _playerStats.JumpCharge;
+            //JumpChargeSlider.value = _playerStats.JumpCharge;
         }
     }
 }

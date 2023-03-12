@@ -10,6 +10,7 @@ namespace TankAssault
         public GameManager gameManager { get; private set; }
         public UIManager uIManager { get; private set; }
         public LevelManager levelManager { get; private set; }
+        public PlayerController player { get; private set; }
 
         // Awake is called before start
         private void Awake()
@@ -34,6 +35,7 @@ namespace TankAssault
             gameManager = GetComponentInChildren<GameManager>();
             uIManager = GetComponentInChildren<UIManager>();
             levelManager = GetComponentInChildren<LevelManager>();
+            player = GetComponentInChildren<PlayerController>();
         }
     }
 }

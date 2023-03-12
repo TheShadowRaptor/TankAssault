@@ -117,13 +117,19 @@ namespace TankAssault
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("EnemyBullet") || other.gameObject.CompareTag("Enemy"))
+            if (other.gameObject.CompareTag("EnemyBullet"))
             {
                 // Take Damage from enemy bullet
                 //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
                 other.gameObject.SetActive(false);
+            }
+
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                int damage = other.gameObject.GetComponent<EnemyStats>().Damage;
+                this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
             }
         }
     }
