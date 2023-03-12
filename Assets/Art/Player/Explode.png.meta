@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: e69767259c437a94fa88d20fb7ffe7df
+guid: 5ca3e1f9485046b47a1d78015baa1e09
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -100,17 +101,41 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerTank-Sheet_0
+      name: Explode_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9527e8ed663f40048aca0ff293732420
-      internalID: 1783306202
+      spriteID: dd04f0e71728ba249b850ce7614c54c4
+      internalID: -207544629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_1
+      name: Explode_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 64
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6485aae8d4a3ccc44a95c53dc19ea85a
-      internalID: 837754491
+      spriteID: bf551fe237b2cd94aa4c51fd27ad685a
+      internalID: 151609996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_2
+      name: Explode_2
       rect:
         serializedVersion: 2
-        x: 108
+        x: 128
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2d71865198424c48b15321f1f81e664
-      internalID: 709019154
+      spriteID: ae15788aa0eafff45b78204a2563cde5
+      internalID: 791950987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_3
+      name: Explode_3
       rect:
         serializedVersion: 2
-        x: 162
+        x: 192
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +206,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d7218b36f43eb49865cc7f4537281e
-      internalID: -1083669606
+      spriteID: 0991051593f332b439b0a541bd865858
+      internalID: -839416235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_4
+      name: Explode_4
       rect:
         serializedVersion: 2
-        x: 216
+        x: 256
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c99818afd24e7b46b8d85d4b14f3524
-      internalID: 696871105
+      spriteID: 3da52d9a959506949857d131167cfc3a
+      internalID: 2107917426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_5
+      name: Explode_5
       rect:
         serializedVersion: 2
-        x: 270
+        x: 320
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +248,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee414bba6c972a24f8e7f81b36a75c09
-      internalID: -1641338256
+      spriteID: e1a1b0996faa2e4439b1c2d7df7f7fb9
+      internalID: -954659398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_6
+      name: Explode_6
       rect:
         serializedVersion: 2
-        x: 324
+        x: 384
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9390ce6987763a419eb5dc85f8f9d5d
-      internalID: 1707760274
+      spriteID: f918272a69584804faa8b7ef216ea9a8
+      internalID: -1044767868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_7
+      name: Explode_7
       rect:
         serializedVersion: 2
-        x: 378
+        x: 448
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +290,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86e938c07ec039f4e9a3745bdf760153
-      internalID: -417735772
+      spriteID: e2d64c95bfaaf4541bfc1383b3436fae
+      internalID: -650802781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerTank-Sheet_8
+      name: Explode_8
       rect:
         serializedVersion: 2
-        x: 432
+        x: 512
         y: 0
-        width: 54
-        height: 39
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,113 +311,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4bfafd8e26a67c4bb523f67bebb1a1d
-      internalID: -484825588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTank-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 0
-        width: 54
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6771e1e70cb4fc0419e6366baf8d2372
-      internalID: -2142318799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTank-Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 540
-        y: 0
-        width: 54
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c89d9e6d58414674fbd31ed7b056ded7
-      internalID: 1232242873
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTank-Sheet_11
-      rect:
-        serializedVersion: 2
-        x: 594
-        y: 0
-        width: 54
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9e45591550d09040bbc674283f9b3c8
-      internalID: 1024733667
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTank-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 648
-        y: 0
-        width: 54
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea8a4c0f1640eee458ff87a610926fd9
-      internalID: -677807369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PlayerTank-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 702
-        y: 0
-        width: 54
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a4090ef071aded48a3aa771d302c12f
-      internalID: -559953594
+      spriteID: 764bb47f098f6ea4cac81bfd4b127f66
+      internalID: 1764641811
       vertices: []
       indices: 
       edges: []
@@ -408,20 +328,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      PlayerTank-Sheet_6: 1707760274
-      PlayerTank-Sheet_12: -677807369
-      PlayerTank-Sheet_7: -417735772
-      PlayerTank-Sheet_1: 837754491
-      PlayerTank-Sheet_8: -484825588
-      PlayerTank-Sheet_4: 696871105
-      PlayerTank-Sheet_0: 1783306202
-      PlayerTank-Sheet_13: -559953594
-      PlayerTank-Sheet_2: 709019154
-      PlayerTank-Sheet_10: 1232242873
-      PlayerTank-Sheet_9: -2142318799
-      PlayerTank-Sheet_5: -1641338256
-      PlayerTank-Sheet_11: 1024733667
-      PlayerTank-Sheet_3: -1083669606
+      Explode_4: 2107917426
+      Explode_1: 151609996
+      Explode_0: -207544629
+      Explode_8: 1764641811
+      Explode_2: 791950987
+      Explode_5: -954659398
+      Explode_6: -1044767868
+      Explode_7: -650802781
+      Explode_3: -839416235
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

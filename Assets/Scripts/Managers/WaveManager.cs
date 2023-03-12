@@ -4,12 +4,18 @@ using UnityEngine;
 
 namespace TankAssault
 {
-    public class BlockEnemy : Enemy
+    public class WaveManager : MonoBehaviour
     {
         // Start is called before the first frame update
         void Start()
         {
-            _player = GameObject.Find("Player").GetComponent<PlayerController>();
+        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+        
         }
     }
 }

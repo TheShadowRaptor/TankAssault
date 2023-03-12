@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 0
   bulletDamage: 0
+  isEnemyBullet: 0
 --- !u!50 &703209028768206080
 Rigidbody2D:
   serializedVersion: 4

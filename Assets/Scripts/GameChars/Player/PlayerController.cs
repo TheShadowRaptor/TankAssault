@@ -92,9 +92,9 @@ namespace TankAssault
         //Returns jump value when input is pressed and fully charged
         float jumpValue()
         {
-            if (jumpInput && _playerStats.JumpFullyCharged)
+            if (jumpInput)
             {
-                _playerStats.ResetJumpCharge();
+                //_playerStats.ResetJumpCharge();
                 return _playerStats.JumpPower;
             }
 
@@ -117,7 +117,7 @@ namespace TankAssault
 
         protected void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("EnemyBullet"))
+            if (other.gameObject.CompareTag("EnemyBullet") || other.gameObject.CompareTag("Enemy"))
             {
                 // Take Damage from enemy bullet
                 //Debug.Log("hit");

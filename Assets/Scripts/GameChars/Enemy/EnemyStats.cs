@@ -6,9 +6,17 @@ namespace TankAssault
 {
     public class EnemyStats : CharacterStats
     {
+        [Header("Movement Settings")]
+        [SerializeField] protected int turnSpeed;
+
         // Reset values
         int healthReset;
         int movementSpeedReset;
+
+        // Gets/Sets
+        //---------------------------------------------------------------
+        public int TurnSpeed { get => turnSpeed; }
+        //===============================================================
 
         // Start is called before the first frame update
         void Start()

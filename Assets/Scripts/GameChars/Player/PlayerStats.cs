@@ -41,7 +41,7 @@ namespace TankAssault
         protected void Update()
         {
             CheckStatus();
-            HandleJumpCharge();
+            //HandleJumpCharge();
             if (!isAlive)
             {
                 CallGameover();
@@ -53,18 +53,18 @@ namespace TankAssault
             MasterSingleton.MS.gameManager.ChangeState(MasterSingleton.MS.gameManager.GameoverConst);
         }
 
-        void HandleJumpCharge()
-        {
-            float chargeIncrease = 0.5f;
+        //void HandleJumpCharge()
+        //{
+        //    float chargeIncrease = 0.5f;
 
-            jumpCharge += chargeIncrease * Time.deltaTime;
-            if (jumpCharge >= jumpChargeReset)
-            {
-                jumpCharge = jumpChargeReset;
-                jumpFullyCharged = true;
-            }
-            else jumpFullyCharged = false;
-        }
+        //    jumpCharge += chargeIncrease * Time.deltaTime;
+        //    if (jumpCharge >= jumpChargeReset)
+        //    {
+        //        jumpCharge = jumpChargeReset;
+        //        jumpFullyCharged = true;
+        //    }
+        //    else jumpFullyCharged = false;
+        //}
 
         public void ResetJumpCharge()
         {
