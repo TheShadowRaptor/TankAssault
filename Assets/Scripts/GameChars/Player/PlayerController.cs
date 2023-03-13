@@ -56,7 +56,7 @@ namespace TankAssault
         void HandleInput()
         {
             // Reads Input
-            if (MasterSingleton.MS.gameManager.CurrentGameState != GameManager.GameState.gameplay) return;
+            if (MasterSingleton.MS.gameManager.CurrentGameState == GameManager.GameState.gameover) return;
             movementInput = Input.GetAxis("Horizontal");
             turretRotationInput = Input.GetAxis("Horizontal2");
             jumpInput = Input.GetButton("Jump");
@@ -79,6 +79,7 @@ namespace TankAssault
             }
 
             HandleTurretTurning();
+            CameraBounds();
         }
 
         void HandleTurretTurning()
@@ -87,7 +88,19 @@ namespace TankAssault
 
             // Rotate the turret game object around its z-axis (which is pointing up)
             turretRb.transform.Rotate(0f, 0f, rotationAmount);
-        }        
+        }  
+        
+        void CameraBounds()
+        {
+            Vector3 pos = gameObject.transform.position;
+            Vector3 camBounds = new Vector3(Camera.main.orthographicSize * 1.65f, Camera.main.orthographicSize, 0);
+            Vector3 camPos = Camera.main.transform.position;
+            if (pos.x > camBounds.x + camPos.x) pos.x = camBounds.x + camPos.x;
+            if (pos.x < -camBounds.x + camPos.x) pos.x = -camBounds.x + camPos.x;
+            if (pos.y > camBounds.y + camPos.y - 3) pos.y = camBounds.y + camPos.y - 3;
+            if (pos.y < -camBounds.y + camPos.y + 1) pos.y = -camBounds.y + camPos.y + 1;
+            gameObject.transform.position = pos;
+        }
 
         //Returns jump value when input is pressed and fully charged
         float jumpValue()

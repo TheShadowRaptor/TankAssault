@@ -262,7 +262,7 @@ MonoBehaviour:
   initialCapacity: 10
   shootingTimer: 1
   bulletSpeed: 30
-  shootingSpeed: 0
+  shootingSpeed: 2
   bulletDamage: 1
   inputDetected: 0
   isEnemyTurret: 0

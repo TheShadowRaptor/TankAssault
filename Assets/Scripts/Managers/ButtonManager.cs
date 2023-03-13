@@ -13,15 +13,16 @@ namespace TankAssault
         // Methods
         public void TitleOnButton()
         {
+            if (MasterSingleton.MS.gameManager.CurrentGameState == GameManager.GameState.gameover)
+            {
+                // Only loads title when gameState == gameover
+                MasterSingleton.MS.levelManager.LoadScene(titleSceneConst);
+            }
+
             // Changes states of GameManager and UI manager on button pressed
             MasterSingleton.MS.gameManager.ChangeState(MasterSingleton.MS.gameManager.MainmenuStateConst);
             MasterSingleton.MS.uIManager.ChangeState(MasterSingleton.MS.uIManager.TitleStateConst);
 
-            if (MasterSingleton.MS.gameManager.CurrentGameState == GameManager.GameState.gameplay)
-            {
-                // Only loads title when gameState == gameplay
-                MasterSingleton.MS.levelManager.LoadScene(titleSceneConst);
-            }
         }
 
         public void SettingsOnButton()

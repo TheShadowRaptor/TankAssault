@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyTurret: {fileID: 8465972103884247937}
-  spawnPoint: {fileID: 0}
   enemyStats: {fileID: 8465972103884123366}
   entryDistance: 2
 --- !u!114 &8465972103884123366
@@ -283,7 +282,7 @@ MonoBehaviour:
   initialCapacity: 3
   shootingTimer: 1
   bulletSpeed: 20
-  shootingSpeed: 0
+  shootingSpeed: 1
   bulletDamage: 1
   inputDetected: 0
   isEnemyTurret: 1

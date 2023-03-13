@@ -12,7 +12,7 @@ namespace TankAssault
         public List<GameObject> enemyTypes = new List<GameObject>();
 
         int numEnemiesPerWave = 1;
-        float timeBetweenSpawns = 2;
+        float timeBetweenSpawns = 3;
         public int waveCounter = 0;
         int numOfWaves = 20;
 

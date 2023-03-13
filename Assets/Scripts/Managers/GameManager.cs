@@ -46,7 +46,7 @@ namespace TankAssault
             {
                 case mainmenuConst:
                     currentGameState = GameState.mainmenu;
-                    Time.timeScale = 0;
+                    Time.timeScale = 1;
                     break;
 
                 case gameplayConst:
@@ -56,12 +56,12 @@ namespace TankAssault
 
                 case pauseConst:
                     currentGameState = GameState.pause;
-                    Time.timeScale = 0;
+                    Time.timeScale = 1;
                     break;
 
                 case gameoverConst:
                     currentGameState = GameState.gameover;
-                    Time.timeScale = 0;
+                    Time.timeScale = 1;
                     break;
             }
         }

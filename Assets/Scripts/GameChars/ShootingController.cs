@@ -91,7 +91,7 @@ namespace TankAssault
 
         void ShootingDelayTimer()
         {
-            shootingTimer -= Time.deltaTime;
+            shootingTimer -= shootingSpeed * Time.deltaTime;
             if (shootingTimer <= 0)
             {
                 shootingTimer = 0;
