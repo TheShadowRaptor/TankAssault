@@ -16,6 +16,8 @@ namespace TankAssault
 
         int score = 0;
 
+        public int Score { get => score; }
+
         // Start is called before the first frame update
         void Start()
         {

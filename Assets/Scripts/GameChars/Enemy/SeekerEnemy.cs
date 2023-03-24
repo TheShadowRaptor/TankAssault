@@ -9,9 +9,13 @@ namespace TankAssault
         // Start is called before the first frame update
         void Start()
         {
-            spawnPoint = transform.position;
+            audioSource = GetComponent<AudioSource>();
             rb = GetComponent<Rigidbody2D>();
             enemyStats = this.gameObject.GetComponent<EnemyStats>();
+
+            spawnPoint = transform.position;
+            hitEffectTimeReset = hitEffectTime;
+
             _player = MasterSingleton.MS.playerController;
             spawning = true;
         }

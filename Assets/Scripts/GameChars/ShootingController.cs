@@ -14,6 +14,7 @@ namespace TankAssault
 
         [Header("Customization")]
         public GameObject bulletType;
+        public CharacterStats characterStats;
 
         [Header("Bullets")]
         public List<GameObject> bullets = new List<GameObject>();
@@ -34,9 +35,13 @@ namespace TankAssault
         // Switches
         [SerializeField] bool autoShoot = false;
 
+        // AudioSource
+        AudioSource audioSource;
+
         // Start is called before the first frame update
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             shootingTimerReset = shootingTimer;
             bulletSpeedReset = bulletSpeed;
             shootingSpeedReset = shootingSpeed;
@@ -47,6 +52,7 @@ namespace TankAssault
         // Update is called once per frame
         void Update()
         {
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay) return;
             ShootingDelayTimer();
             BulletManager();
         }
@@ -64,11 +70,22 @@ namespace TankAssault
 
         void BulletManager()
         {
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay
+                || characterStats.IsAlive == false)
+            {
+                return;
+            }
+
             if (inputDetected || autoShoot)
             {
                 inputDetected = false;
                 if (canShoot)
                 {
+                    if (isEnemyTurret)
+                    {
+                        // Sound
+                    }
+                    else MasterSingleton.MS.audioManager.PlayAudio(audioSource, MasterSingleton.MS.audioManager.playerShoot);
                     GetBullet();     
                     ResetShootingDelayTimer();
                 }

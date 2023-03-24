@@ -18,6 +18,11 @@ namespace TankAssault
         [SerializeField] private int turretRotationSpeed;
         [SerializeField] private int jumpPower;
 
+        [Header("Components")]
+        [SerializeField] protected Animator animator;
+        protected SpriteRenderer[] childSpriteRenderers;
+        protected Color spriteColor;
+
         [Header("JumpCharge Settings")]
         private float jumpCharge = 1;
         private bool jumpFullyCharged;
@@ -34,6 +39,7 @@ namespace TankAssault
         // Start is called before the first frame update
         void Start()
         {
+            childSpriteRenderers = this.gameObject.GetComponentsInChildren<SpriteRenderer>();
             // init
             InitResetStats();
         }
@@ -44,7 +50,32 @@ namespace TankAssault
             //HandleJumpCharge();
             if (!isAlive)
             {
-                CallGameover();
+                animator.SetBool("isDying", true);
+                AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                if (stateInfo.IsName("Death") && stateInfo.normalizedTime >= 1.0f)
+                {
+                    for (int i = 0; i < childSpriteRenderers.Length; i++) 
+                    {
+                        spriteColor = childSpriteRenderers[i].GetComponent<SpriteRenderer>().color;
+                        spriteColor.a = 0;
+                        childSpriteRenderers[i].GetComponent<SpriteRenderer>().color = spriteColor;
+                    }
+                    CallGameover();
+                }
+            }
+            else
+            {
+                animator.SetBool("isDying", false);
+                for (int i = 0; i < childSpriteRenderers.Length; i++)
+                {
+                    spriteColor = childSpriteRenderers[i].GetComponent<SpriteRenderer>().color;
+                    if (i == childSpriteRenderers.Length - 1)
+                    {
+                        spriteColor.a = 0.2f;
+                    }
+                    else spriteColor.a = 1;
+                    childSpriteRenderers[i].GetComponent<SpriteRenderer>().color = spriteColor;
+                }
             }
         }
 

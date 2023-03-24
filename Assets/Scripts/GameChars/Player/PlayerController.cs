@@ -36,9 +36,13 @@ namespace TankAssault
         public bool ShootInput { get => shootInput; }
         //---------------------------------------------------------------
 
+        //AudioSource
+        protected AudioSource audioSource;
+
         // Start is called before the first frame update
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
             rb2D = this.gameObject.GetComponent<Rigidbody2D>();
             playerStats = this.gameObject.GetComponent<PlayerStats>();
         }
@@ -137,13 +141,17 @@ namespace TankAssault
                 //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
+                MasterSingleton.MS.audioManager.StopAudio(audioSource);
+                MasterSingleton.MS.audioManager.PlayAudio(audioSource, MasterSingleton.MS.audioManager.playerHurt);
                 other.gameObject.GetComponent<Bullet>().Deactivate();
             }
 
             if (other.gameObject.CompareTag("Enemy"))
             {
-                int damage = other.gameObject.GetComponent<EnemyStats>().Damage;
+                int damage = other.gameObject.GetComponent<EnemyStats>().BodyDamage;
                 this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
+                MasterSingleton.MS.audioManager.StopAudio(audioSource);
+                MasterSingleton.MS.audioManager.PlayAudio(audioSource, MasterSingleton.MS.audioManager.playerHurt);
                 other.gameObject.GetComponent<EnemyStats>().TakeDamage(1000);
             }
         }

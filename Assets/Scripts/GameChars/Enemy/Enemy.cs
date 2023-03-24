@@ -22,14 +22,33 @@ namespace TankAssault
 
         protected bool spawning;
 
+        // AudioSource
+        protected AudioSource audioSource;
+
+        protected float hitEffectTime = 0.2f;
+        protected float hitEffectTimeReset;
+        protected bool isHit;
+
         protected virtual void FixedUpdate()
         {
+            
+        }
 
+        private void Update()
+        {
+            HitEffect();
         }
 
         protected void HandleTurretTurning()
         {
             if (enemyTurret == null) return;
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay
+                || enemyStats.IsAlive == false)
+            {
+                rb.velocity = Vector3.zero;
+                return;
+            }
+
             Vector3 direction = _player.transform.position - enemyTurret.transform.position;
             enemyTurret.transform.up = direction.normalized;
             enemyTurret.transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, 15 * Time.deltaTime);
@@ -37,11 +56,13 @@ namespace TankAssault
         }
         protected void ChasePlayer()
         {
-            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay)
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay
+                || enemyStats.IsAlive == false)
             {
                 rb.velocity = Vector3.zero;
                 return;
             }
+
             //Move
             rb.velocity = transform.right * enemyStats.MovementSpeed * Time.deltaTime;
 
@@ -52,6 +73,13 @@ namespace TankAssault
 
         protected virtual void SpawnIn()
         {
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay
+                || enemyStats.IsAlive == false)
+            {
+                rb.velocity = Vector3.zero;
+                return;
+            }
+
             rb.velocity = -transform.up * enemyStats.MovementSpeed * Time.deltaTime;
 
             float distance = Vector2.Distance(transform.position, spawnPoint);
@@ -67,7 +95,25 @@ namespace TankAssault
                 //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<EnemyStats>().TakeDamage(damage);
+                MasterSingleton.MS.audioManager.PlayAudio(audioSource, MasterSingleton.MS.audioManager.enemyHurt);
+                isHit = true;
                 other.gameObject.GetComponent<Bullet>().Deactivate();
+            }
+        }
+
+        void HitEffect()
+        {
+            if (isHit)
+            {
+                hitEffectTime -= Time.deltaTime;
+                this.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                if (hitEffectTime <= 0)
+                {
+                    this.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    hitEffectTime = hitEffectTimeReset;
+                    hitEffectTime = 0;
+                    isHit = false;
+                }
             }
         }
     }

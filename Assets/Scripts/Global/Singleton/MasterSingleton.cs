@@ -8,6 +8,7 @@ namespace TankAssault
     {
         public static MasterSingleton MS { get; private set; }
         public GameManager gameManager { get; private set; }
+        public AudioManager audioManager { get; private set; }
         public UIManager uIManager { get; private set; }
         public LevelManager levelManager { get; private set; }
         public ResetManager resetManager { get; private set; }
@@ -34,6 +35,7 @@ namespace TankAssault
         public void FindComponents()
         {
             gameManager = GetComponentInChildren<GameManager>();
+            audioManager = GetComponentInChildren<AudioManager>();
             uIManager = GetComponentInChildren<UIManager>();
             levelManager = GetComponentInChildren<LevelManager>();
             resetManager = GetComponentInChildren<ResetManager>();

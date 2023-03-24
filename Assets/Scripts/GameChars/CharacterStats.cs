@@ -18,7 +18,8 @@ namespace TankAssault
         public int Health { get => health; }
         //---------------------------------------------------------------
         public int MovementSpeed { get => movementSpeed; }
-        public int Damage { get => bodyDamage; }
+        public int BodyDamage { get => bodyDamage; }
+        public bool IsAlive { get => isAlive; }
         //===============================================================
 
         public void TakeDamage(int damage)
