@@ -20,7 +20,17 @@ namespace TankAssault
         // Update is called once per frame
         void Update()
         {
+            if (MasterSingleton.MS.gameManager.currentGameState == GameManager.GameState.mainmenu
+                || MasterSingleton.MS.gameManager.currentGameState == GameManager.GameState.gameover)
+            {
+                Deactivate();
+            }
             Move();
+
+            if (this.gameObject.GetComponent<Renderer>().isVisible == false)
+            {
+                Deactivate();
+            }
         }
 
         void Move()
@@ -31,6 +41,11 @@ namespace TankAssault
             else direction = transform.up;
 
             gameObject.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        }
+
+        public void Deactivate()
+        {
+            this.gameObject.SetActive(false);
         }
     }
 }

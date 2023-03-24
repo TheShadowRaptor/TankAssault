@@ -9,7 +9,7 @@ namespace TankAssault
         GameObject playerObj;
         private void Start()
         {
-            playerObj = MasterSingleton.MS.player.gameObject;
+            playerObj = MasterSingleton.MS.playerController.gameObject;
         }
 
         // Update is called once per frame

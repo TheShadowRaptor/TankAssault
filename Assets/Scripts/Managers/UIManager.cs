@@ -37,14 +37,14 @@ namespace TankAssault
         public Canvas gameoverCanvas;
 
         //Scripts
-        [Header("Scripts")]
-        public GameManager _gameManager;
+        [Header("UI Scripts")]
+        public HUDManager hUDManager;
 
         // Methods
         private void Update()
         {
             // Shows canvas depending on gameState
-            switch (_gameManager.CurrentGameState)
+            switch (MasterSingleton.MS.gameManager.CurrentGameState)
             {
                 case GameManager.GameState.mainmenu:
                     // Controlled by MainMenuState machine

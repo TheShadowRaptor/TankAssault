@@ -7,6 +7,7 @@ namespace TankAssault
     public abstract class Enemy : MonoBehaviour
     {
         protected PlayerController _player;
+
         [Header("GameObjects")]
         [SerializeField] protected GameObject enemyTurret;
         protected Vector3 spawnPoint;
@@ -36,7 +37,11 @@ namespace TankAssault
         }
         protected void ChasePlayer()
         {
-            Debug.Log("Chaser");
+            if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay)
+            {
+                rb.velocity = Vector3.zero;
+                return;
+            }
             //Move
             rb.velocity = transform.right * enemyStats.MovementSpeed * Time.deltaTime;
 
@@ -45,7 +50,7 @@ namespace TankAssault
             transform.right = chaseLerp;
         }
 
-        protected void SpawnIn()
+        protected virtual void SpawnIn()
         {
             rb.velocity = -transform.up * enemyStats.MovementSpeed * Time.deltaTime;
 
@@ -62,7 +67,7 @@ namespace TankAssault
                 //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<EnemyStats>().TakeDamage(damage);
-                other.gameObject.SetActive(false);
+                other.gameObject.GetComponent<Bullet>().Deactivate();
             }
         }
     }

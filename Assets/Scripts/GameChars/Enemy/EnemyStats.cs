@@ -6,8 +6,13 @@ namespace TankAssault
 {
     public class EnemyStats : CharacterStats
     {
-        [Header("Movement Settings")]
+        //[Header("Movement Settings")]
         [SerializeField] protected int turnSpeed;
+
+        [Header("Settings")]
+        [SerializeField] protected int pointsOnDeath;
+        [SerializeField] protected List<GameObject> drops = new List<GameObject>();
+        int dropChance;
 
         // Reset values
         int healthReset;
@@ -29,7 +34,13 @@ namespace TankAssault
             CheckStatus();
 
             if (isAlive) Activate();
-            else Deactivate();
+            else
+            {
+                MasterSingleton.MS.uIManager.hUDManager.AddPoints(pointsOnDeath);
+                dropChance = Random.Range(0, drops.Count + 5);
+                if (dropChance <= drops.Count) Instantiate(drops[dropChance], this.gameObject.transform.position, Quaternion.identity);
+                Deactivate();
+            }
         }
 
         public override void ResetStats()

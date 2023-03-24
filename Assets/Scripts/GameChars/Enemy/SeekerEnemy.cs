@@ -12,7 +12,7 @@ namespace TankAssault
             spawnPoint = transform.position;
             rb = GetComponent<Rigidbody2D>();
             enemyStats = this.gameObject.GetComponent<EnemyStats>();
-            _player = MasterSingleton.MS.player;
+            _player = MasterSingleton.MS.playerController;
             spawning = true;
         }
 

@@ -6,6 +6,12 @@ namespace TankAssault
 {
     public class ShootingController : MonoBehaviour
     {
+        // Reset values
+        float shootingTimerReset;
+        float bulletSpeedReset;
+        float shootingSpeedReset;
+        int bulletDamageReset;
+
         [Header("Customization")]
         public GameObject bulletType;
 
@@ -25,16 +31,16 @@ namespace TankAssault
 
         public bool isEnemyTurret = false;
 
-        // Resets
-        protected float baseShootingTimer;
-
         // Switches
         [SerializeField] bool autoShoot = false;
 
         // Start is called before the first frame update
         void Start()
         {
-            baseShootingTimer = shootingTimer;
+            shootingTimerReset = shootingTimer;
+            bulletSpeedReset = bulletSpeed;
+            shootingSpeedReset = shootingSpeed;
+            bulletDamageReset = bulletDamage;
             BulletPoolInstantiation();
         }
 
@@ -108,7 +114,14 @@ namespace TankAssault
 
         public void ResetShootingDelayTimer()
         {
-            shootingTimer = baseShootingTimer;
+            shootingTimer = shootingTimerReset;
+        }
+
+        public void ResetStats()
+        {
+            bulletSpeed = bulletSpeedReset;
+            shootingSpeed = shootingSpeedReset;
+            bulletDamage = bulletDamageReset;
         }
     }
 }

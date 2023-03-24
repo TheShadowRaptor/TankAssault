@@ -68,6 +68,9 @@ MonoBehaviour:
   bodyDamage: 2
   movementSpeed: 75
   turnSpeed: 100
+  pointsOnDeath: 20
+  drops:
+  - {fileID: 5025902157796451687, guid: cc9b829b1b60cf149a680ef10d4a6288, type: 3}
 --- !u!61 &8465972103884123365
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -47,5 +47,10 @@ namespace TankAssault
             MasterSingleton.MS.levelManager.ExitGame();
             Debug.Log("Exit");
         }
+
+        public void ResetRunButton()
+        {
+            MasterSingleton.MS.resetManager.RunReset();
+        }
     }
 }

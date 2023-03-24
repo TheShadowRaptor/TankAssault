@@ -34,6 +34,7 @@ namespace TankAssault
 
         void Update()
         {
+            //if (MasterSingleton.MS.gameManager.currentGameState != GameManager.GameState.gameplay) return;
             GenerateScenery();
             AddScenery();
             RemoveScenery();

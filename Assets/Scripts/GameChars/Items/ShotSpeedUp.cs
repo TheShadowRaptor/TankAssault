@@ -6,6 +6,7 @@ namespace TankAssault
 {
     public class ShotSpeedUp : MonoBehaviour
     {
+        public float shotSpeedIncrease = 0.1f;
         // Start is called before the first frame update
         void Start()
         {
@@ -22,7 +23,7 @@ namespace TankAssault
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                MasterSingleton.MS.player.playerShootingController.shootingSpeed += 1;
+                MasterSingleton.MS.playerController.playerShootingController.shootingSpeed += shotSpeedIncrease;
                 gameObject.SetActive(false);
             }
         }

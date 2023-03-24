@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyTurret: {fileID: 0}
   enemyStats: {fileID: 5536268428259680010}
-  entryDistance: 2
+  entryDistance: 0.1
 --- !u!114 &5536268428259680010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,10 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d21d64618196f4bb92437728fadac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   bodyDamage: 2
   movementSpeed: 125
   turnSpeed: 10
+  pointsOnDeath: 10
+  drops:
+  - {fileID: 5025902157796451687, guid: cc9b829b1b60cf149a680ef10d4a6288, type: 3}
 --- !u!61 &5536268428259680011
 BoxCollider2D:
   m_ObjectHideFlags: 0

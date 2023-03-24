@@ -8,10 +8,17 @@ namespace TankAssault
     public class LevelManager : MonoBehaviour
     {
         // Scripts
-        [Header("Scripts")]
-        public GameManager _gameManager;
+        [Header("Level Scripts")]
+        public WaveManager waveManager;
+        public GroundGeneration groundGeneration;
+        public SceneryGeneration sceneryGeneration;
 
         // Methods
+        private void Update()
+        {
+            
+        }
+
         public void LoadScene(string sceneName)
         {
             SceneManager.LoadScene(sceneName);

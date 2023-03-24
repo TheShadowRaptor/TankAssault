@@ -17,7 +17,7 @@ namespace TankAssault
         public ShootingController playerShootingController;
 
         // Scripts
-        PlayerStats _playerStats;
+        PlayerStats playerStats;
 
         // Components
         Rigidbody2D rb2D;
@@ -29,6 +29,7 @@ namespace TankAssault
         bool shootInput;
 
         // Gets/Sets
+        public PlayerStats PlayerStats { get => playerStats; }
         public float TurretRotationInput { get => turretRotationInput; }
         public float MovementInput { get => movementInput; }
         public bool JumpInput { get => jumpInput; }
@@ -39,7 +40,7 @@ namespace TankAssault
         void Start()
         {
             rb2D = this.gameObject.GetComponent<Rigidbody2D>();
-            _playerStats = this.gameObject.GetComponent<PlayerStats>();
+            playerStats = this.gameObject.GetComponent<PlayerStats>();
         }
 
         // Update is called once per frame
@@ -74,7 +75,7 @@ namespace TankAssault
             // Moves/Jump Player if on ground
             if (Grounded())
             {
-                Vector2 playerMovement = new Vector2(movementInput * _playerStats.MovementSpeed, jumpValue());
+                Vector2 playerMovement = new Vector2(movementInput * playerStats.MovementSpeed, jumpValue());
                 rb2D.velocity = playerMovement;
             }
 
@@ -84,7 +85,7 @@ namespace TankAssault
 
         void HandleTurretTurning()
         {
-            float rotationAmount = turretRotationInput * _playerStats.TurretRotationSpeed * Time.deltaTime;
+            float rotationAmount = turretRotationInput * playerStats.TurretRotationSpeed * Time.deltaTime;
 
             // Rotate the turret game object around its z-axis (which is pointing up)
             turretRb.transform.Rotate(0f, 0f, rotationAmount);
@@ -108,7 +109,7 @@ namespace TankAssault
             if (jumpInput)
             {
                 //_playerStats.ResetJumpCharge();
-                return _playerStats.JumpPower;
+                return playerStats.JumpPower;
             }
 
             return 0;
@@ -136,13 +137,14 @@ namespace TankAssault
                 //Debug.Log("hit");
                 int damage = other.gameObject.GetComponent<Bullet>().bulletDamage;
                 this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
-                other.gameObject.SetActive(false);
+                other.gameObject.GetComponent<Bullet>().Deactivate();
             }
 
             if (other.gameObject.CompareTag("Enemy"))
             {
                 int damage = other.gameObject.GetComponent<EnemyStats>().Damage;
                 this.gameObject.GetComponent<PlayerStats>().TakeDamage(damage);
+                other.gameObject.GetComponent<EnemyStats>().TakeDamage(1000);
             }
         }
     }
